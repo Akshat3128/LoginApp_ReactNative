@@ -1,50 +1,127 @@
-# Welcome to your Expo app 👋
+# React Native Login App (Expo)
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A simple and responsive **login screen** built using **React Native with Expo CLI**, focused on input validation and clean UI.  
+🛡️ **Only Gmail addresses are allowed** as valid emails for login.
 
-## Get started
+---
 
-1. Install dependencies
+## 🚀 Features
 
-   ```bash
-   npm install
-   ```
+- 📧 Email and password input fields
+- 👁 Toggle to show/hide password
+- ✅ Validates email format **and checks for `@gmail.com` domain**
+- ⚠️ Alerts for invalid or empty input
+- 📦 Mock backend data (`user.json`)
+- 📱 Fully mobile responsive
+- ❌ No use of `expo-router` or TypeScript
 
-2. Start the app
+---
 
-   ```bash
-   npx expo start
-   ```
+## 📁 Folder Structure
 
-In the output, you'll find options to open the app in a
-
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
+```
+LoginApp_ReactNative/
+├── App.js                   # Entry point
+├── components/
+│   └── LoginForm.js         # Reusable login form with validation
+├── backend/
+│   └── user.json            # Simulated backend data
+├── assets/                  # (Optional) images, icons, etc.
+├── package.json             # Project dependencies
+└── README.md                # You're here
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+---
 
-## Learn more
+## 🛠️ How to Run
 
-To learn more about developing your project with Expo, look at the following resources:
+### 1. Install Expo CLI (if not installed)
+```bash
+npm install -g expo-cli
+```
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+### 2. Clone or unzip the project
+```bash
+cd LoginApp_ReactNative
+npm install
+```
 
-## Join the community
+### 3. Start the project
+```bash
+npx expo start
+```
 
-Join our community of developers creating universal apps.
+### 4. Run on device
+- 📱 Use the **Expo Go** app on your Android/iOS phone
+- 📷 Scan the QR code shown in the terminal
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+---
+
+## 🔐 Email Validation Logic
+
+The login form:
+- Checks for general email format: `something@domain.com`
+- Ensures the domain is exactly `@gmail.com` (case-insensitive)
+
+### Example (valid):
+```
+test123@gmail.com
+```
+
+### Example (invalid):
+```
+test123@yahoo.com ❌
+test@GMAIL.com ✅
+```
+
+---
+
+## 📄 Mock Backend
+
+`backend/user.json`:
+
+```json
+{
+  "email": "user@gmail.com",
+  "password": "password123"
+}
+```
+
+Currently used for simulated backend — can be expanded for real API integration.
+
+---
+
+## 📦 Built With
+
+- [React Native](https://reactnative.dev/)
+- [Expo CLI](https://expo.dev/)
+- [React Native Vector Icons](https://github.com/oblador/react-native-vector-icons)
+
+---
+
+## 🙋 FAQ
+
+**Q:** I get `expo-router` or `index.tsx` errors  
+**A:** Delete the `/app` folder and remove `"main": "expo-router/entry"` from `package.json`
+
+**Q:** App doesn't open in emulator?  
+**A:** Use Expo Go app on your phone instead — no emulator needed
+
+**Q:** Web build shows missing `@expo/metro-runtime`?  
+**A:** Ignore it or install using:  
+```bash
+npx expo install @expo/metro-runtime
+```
+
+---
+
+## 👤 Author
+
+Built with ❤️ by [Akshat Saxena]  
+Feel free to fork, clone, or improve the project.
+
+---
+
+## 📜 License
+
+This project is free and open-source under the [MIT License](LICENSE).
